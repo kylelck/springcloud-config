@@ -1,0 +1,19 @@
+security:
+  user:
+    password: user123456    # 安全防护机制，指定账号密码
+    name: user
+# git仓库配置地址
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/kylelck/config-server/
+          search-paths: config-repo
+          basedir: target/config-repo
+      label: master
+
+
+# 配置秘钥
+encrypt:
+  key: lick
