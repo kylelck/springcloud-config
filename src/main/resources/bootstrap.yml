@@ -1,7 +1,12 @@
+# 安全防护机制，指定账号密码
 security:
   user:
-    password: user123456    # 安全防护机制，指定账号密码
+    password: user123456
     name: user
+# 配置本地文件系统
+#spring:
+#  profiles:
+#    active: native
 # git仓库配置地址
 spring:
   cloud:
@@ -12,8 +17,15 @@ spring:
           search-paths: config-repo
           basedir: target/config-repo
       label: master
-
-
-# 配置秘钥
+# 配置秘钥-RSA非对称加密
 encrypt:
-  key: lick
+  key-store:
+    location: classpath:config-server.jks
+    alias: mytestkey
+    password: lick1992
+    secret: lick1992
+
+
+# 配置秘钥-对称加密
+#encrypt:
+#  key: lick
